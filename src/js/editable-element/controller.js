@@ -354,10 +354,11 @@ angular.module('xeditable').factory('editableController',
           }
       });
 
-// bind blur for when really losing focus
+      // bind blur for when really losing focus
       // on single inputs
       self.inputEl.bind('blur', function(e) {
           if(!self.single) {
+            console.log('Not single');
             return;
           }
           if (e.keyCode === 9) {
@@ -367,6 +368,7 @@ angular.module('xeditable').factory('editableController',
             if (self.attrs.blur === 'submit') {
               self.scope.$form.$submit();
             } else {
+              e.preventDefault();
               self.scope.$form.$cancel();
             }
           });
