@@ -357,7 +357,7 @@ angular.module('xeditable').factory('editableController',
       // bind blur for when really losing focus
       // on single inputs
       self.inputEl.bind('blur', function(e) {
-          $event.stopPropagation();
+          e.stopPropagation();
           if(!self.single) {
             return;
           }
